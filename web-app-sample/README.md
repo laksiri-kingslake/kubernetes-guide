@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
       - name: my-webapp
-        image: nginx:1.7.9
+        image: my-app:1.7.9
         ports:
         - containerPort: 80
 ```
@@ -50,6 +50,7 @@ spec:
   ports:
   - port: 80
     targetPort: 80
+    nodePort: 30007
   type: NodePort
 ```
 
@@ -58,7 +59,7 @@ spec:
 kubectl apply -f my-webapp-service.yaml
 ```
 
-### Step 3: Expose the Application to External Users
+### Expose the Application to External Users
 To make your application accessible from outside the cluster, you need to expose the Service. We can use NodePort or LoadBalancer
 
 1. Using **NodePort**<br>
@@ -99,7 +100,7 @@ After creating the Service, we can get the external IP address of the LoadBalanc
 kubectl get service my-webapp-service
 ```
 
-### Step 4: Verify the Deployment and Service
+### Step 3: Verify the Deployment and Service
 To ensure that the application is deployed and accessible, we can check the status of the Deployment and Service.
 
 1. Check Deployment Status
