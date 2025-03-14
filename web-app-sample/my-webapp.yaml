@@ -15,5 +15,6 @@ spec:
       containers:
       - name: my-webapp
         image: my-app:1.7.9
+        imagePullPolicy: Never # This is for local testing - Change to Always for production
         ports:
         - containerPort: 80

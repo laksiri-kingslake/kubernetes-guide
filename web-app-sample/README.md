@@ -155,13 +155,24 @@ spec:
 kubectl apply -f my-webapp.yaml
 ```
 
+### Get the Url
+```bash
+# minikube
+minikube service my-webapp-service --url
+
+# For Other Kubernetes Clusters
+kubectl get nodes -o wide
+```
+
 ## Prepare container image
 
 ```bash
 docker build -t my-app:1.7.9 .
 docker run -d -p 45678:80 my-app:1.7.9
+minikube image load my-app:1.7.9
 ```
 
 
 ## Reference
-- https://medium.com/@platform.engineers/deploying-a-simple-web-application-on-kubernetes-43bbf724c23d
+- https://medium.com/@platform.engineers/deploying-a-simple-web-application-on-kubernetes-43bbf724c23d <br>
+- https://chatgpt.com/share/67d3b670-0b6c-8001-beaf-dc3ba02a78e7
